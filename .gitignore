@@ -1,3 +1,6 @@
+# Opstool output
+_OPSTOOL_ODB/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

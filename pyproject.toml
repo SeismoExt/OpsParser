@@ -8,7 +8,10 @@ dependencies = []
 
 [dependency-groups]
 dev = [
+    "ipykernel>=6.29.5",
     "matplotlib>=3.10.1",
+    "nbformat>=5.10.4",
     "openseespy>=3.7.1.2",
+    "opstool>=1.0.13",
     "pytest>=8.3.5",
 ]

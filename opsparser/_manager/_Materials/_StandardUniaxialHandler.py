@@ -83,13 +83,12 @@ class StandardUniaxialHandler(SubBaseHandler):
             "matType": arg_map.get("matType"),
             "matTag": matTag,
             "E": arg_map.get("E"),
-            "materialCommandType": "uniaxialMaterial"
         }
 
         # Add optional parameters
         optional_params = ["eta", "Eneg"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                  material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -113,13 +112,12 @@ class StandardUniaxialHandler(SubBaseHandler):
             "matTag": matTag,
             "E": arg_map.get("E"),
             "epsyP": arg_map.get("epsyP"),
-            "materialCommandType": "uniaxialMaterial"
         }
 
         # Add optional parameters
         optional_params = ["epsyN", "eps0"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                  material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -144,13 +142,12 @@ class StandardUniaxialHandler(SubBaseHandler):
             "E": arg_map.get("E"),
             "Fy": arg_map.get("Fy"),
             "gap": arg_map.get("gap"),
-            "materialCommandType": "uniaxialMaterial"
         }
 
         # Add optional parameters
         optional_params = ["eta", "damage"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                  material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -173,7 +170,6 @@ class StandardUniaxialHandler(SubBaseHandler):
             "matType": arg_map.get("matType"),
             "matTag": matTag,
             "E": arg_map.get("E"),
-            "materialCommandType": "uniaxialMaterial"
         }
 
         # Add optional parameters
@@ -205,14 +201,13 @@ class StandardUniaxialHandler(SubBaseHandler):
             "e1p": arg_map.get("e1p"),
             "s2p": arg_map.get("s2p"),
             "e2p": arg_map.get("e2p"),
-            "materialCommandType": "uniaxialMaterial"
         }
 
         # Add all optional parameters
         optional_params = ["s3p", "e3p", "s1n", "e1n", "s2n", "e2n", "s3n", "e3n",
                             "pinchX", "pinchY", "damage1", "damage2", "beta"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                  material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -234,7 +229,6 @@ class StandardUniaxialHandler(SubBaseHandler):
         material_info = {
             "matType": arg_map.get("matType"),
             "matTag": matTag,
-            "materialCommandType": "uniaxialMaterial"
         }
 
         # Process material tag list
@@ -264,7 +258,6 @@ class StandardUniaxialHandler(SubBaseHandler):
         material_info = {
             "matType": arg_map.get("matType"),
             "matTag": matTag,
-            "materialCommandType": "uniaxialMaterial"
         }
 
         # Process material tag list

@@ -86,7 +86,7 @@ class UCSDSoilModelsHandler(SubBaseHandler):
         # 添加可选参数
         optional_params = ["frictionAng", "refPress", "pressDependCoe", "noYieldSurf"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         # 处理可变参数 yieldSurf
@@ -138,7 +138,7 @@ class UCSDSoilModelsHandler(SubBaseHandler):
         # 添加可选参数
         optional_params = ["noYieldSurf", "e", "c"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -179,7 +179,7 @@ class UCSDSoilModelsHandler(SubBaseHandler):
         # 添加可选参数
         optional_params = ["noYieldSurf", "contrac2", "dilat2", "e", "c"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         # 处理可变参数
@@ -232,7 +232,7 @@ class UCSDSoilModelsHandler(SubBaseHandler):
         # 添加可选参数
         optional_params = ["noYieldSurf", "liquefac1", "liquefac2", "pa", "s0"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         # 处理可变参数 yieldSurf

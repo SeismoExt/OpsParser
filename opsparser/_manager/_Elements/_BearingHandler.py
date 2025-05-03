@@ -672,7 +672,7 @@ class BearingHandler(SubBaseHandler):
                          "tag1", "tag2", "tag3", "tag4"]
 
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 eleinfo[param] = arg_map.get(param)
 
         self.elements[eleTag] = eleinfo
@@ -703,7 +703,7 @@ class BearingHandler(SubBaseHandler):
                          "qL", "cL", "kS", "aS", "tag1", "tag2", "tag3", "tag4", "tag5"]
 
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 eleinfo[param] = arg_map.get(param)
 
         self.elements[eleTag] = eleinfo
@@ -741,7 +741,7 @@ class BearingHandler(SubBaseHandler):
         optional_params = ["orientVals", "kc", "PhiM", "ac", "sDratio", "m", "tc"]
 
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 eleinfo[param] = arg_map.get(param)
 
         self.elements[eleTag] = eleinfo

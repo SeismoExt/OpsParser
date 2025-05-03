@@ -423,7 +423,7 @@ class StandardModelsHandler(SubBaseHandler):
                           "z_max", "c_z", "c_e", "phi_cv", "nu", "g_degr", "c_dr",
                           "c_kaf", "Q_bolt", "R_bolt", "m_par", "F_sed", "p_sed"]
         for param in optional_params:
-            if arg_map.get(param):
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -456,7 +456,7 @@ class StandardModelsHandler(SubBaseHandler):
                           "phicv", "nb_wet", "nb_dry", "nd", "Ado", "ru_max", "z_max",
                           "cz", "ce", "cgd", "ckaf", "m_m", "CG_consol"]
         for param in optional_params:
-            if arg_map.get(param):
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info

@@ -30,7 +30,7 @@ class HandlerCollection:
         self._handlers[handler_name] = handler
 
     def __getattr__(self, name: str) -> BaseHandler:
-        """Allow accessing handlers using attribute syntax (e.g., collection.NodeManager)."""
+        """Allow accessing handlers using attribute syntax (e.g., collection.Node)."""
         if name in self._handlers:
             return self._handlers[name]
         # Delegate to default attribute access if name starts with underscore or is not a handler name
@@ -68,7 +68,7 @@ class HandlerCollection:
                  dispatch_table[func_name] = handler
         return dispatch_table
 
-class OpenSeesSpy:
+class OpenSeesParser:
     def __init__(self, module):
         self.module = module
         self.call_log: defaultdict[str, list] = defaultdict(list)
@@ -85,13 +85,13 @@ class OpenSeesSpy:
         # Build a dispatch table: func_name -> handler
         self.dispatch_table: dict[str, BaseHandler] = self.handlers.get_dispatch_table()
 
-    def hook_all(self):
+    def hook_all(self, debug = False):
         for name in dir(self.module):
             attr = getattr(self.module, name)
             if isinstance(attr, (types.FunctionType, types.BuiltinFunctionType)):
-                self._hook_function(name, attr)
+                self._hook_function(name, attr, debug)
 
-    def _hook_function(self, name, func):
+    def _hook_function(self, name, func, debug = False):
         self.original_functions[name] = func
 
         @functools.wraps(func)
@@ -103,7 +103,8 @@ class OpenSeesSpy:
             # Dispatch to handler
             handler = self.dispatch_table.get(name)
             if handler:
-                print(name, arg_map)
+                if debug:
+                    print(name, arg_map)
                 handler.handle(name, arg_map)
 
             return func(*args, **kwargs)
@@ -126,14 +127,14 @@ if __name__ == "__main__":
     import openseespy.opensees as ops
 
     # 假设你已经有下面这些类
-    # - OpenSeesSpy
+    # - OpenSeesParser
     # - NodeManager(BaseHandler)
     # - ElementManager(BaseHandler)
     # ...（参考前文）
 
     # 创建 spy 并挂钩所有命令
-    spy = OpenSeesSpy(ops)
-    spy.hook_all()
+    parser = OpenSeesParser(ops)
+    parser.hook_all()
 
     # 运行 OpenSees 命令
     ops.model("basic", "-ndm", 2, "-ndf", 3)
@@ -143,7 +144,7 @@ if __name__ == "__main__":
     ops.node(4, 0.0, 1.0)
 
     # 提取节点数据
-    node_dict = spy.handlers["Node"].nodes
+    node_dict = parser.handlers["Node"].nodes
 
     # 准备画图数据
     x_coords = []
@@ -151,7 +152,7 @@ if __name__ == "__main__":
     labels = []
 
     for tag in node_dict:
-        coords = spy.handlers["Node"].get_node_coords(tag)
+        coords = parser.handlers["Node"].get_node_coords(tag)
         x_coords.append(coords[0])
         y_coords.append(coords[1])
         labels.append(str(tag))

@@ -178,7 +178,7 @@ class ConcreteHandler(SubBaseHandler):
         # 添加可选参数
         optional_params = ["fct", "et", "beta"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -342,7 +342,7 @@ class ConcreteHandler(SubBaseHandler):
         # 添加可选参数
         optional_params = ["cesp", "etap"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -416,7 +416,7 @@ class ConcreteHandler(SubBaseHandler):
         # 处理其他必需参数
         required_params = ["ft", "Ets", "Unit"]
         for param in required_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -486,7 +486,7 @@ class ConcreteHandler(SubBaseHandler):
         # 添加其他参数
         additional_params = ["epsshu", "psish", "Tcr", "phiu", "psicr1", "psicr2", "tcast"]
         for param in additional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -518,7 +518,7 @@ class ConcreteHandler(SubBaseHandler):
         # 添加其他参数
         additional_params = ["epsshu", "psish", "Tcr", "epscru", "sigCr", "psicr1", "psicr2", "tcast"]
         for param in additional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -551,7 +551,7 @@ class ConcreteHandler(SubBaseHandler):
         # 添加其他参数
         additional_params = ["epsba", "epsbb", "epsda", "epsdb", "phiba", "phibb", "phida", "phidb", "tcast", "cem"]
         for param in additional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -586,7 +586,7 @@ class ConcreteHandler(SubBaseHandler):
         # 添加其他参数
         additional_params = ["epsba", "epsbb", "epsda", "epsdb", "phiba", "phibb", "phida", "phidb", "tcast", "cem"]
         for param in additional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info

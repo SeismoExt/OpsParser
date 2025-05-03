@@ -113,7 +113,7 @@ class SteelReinforcingHandler(SubBaseHandler):
         # 添加可选参数
         optional_params = ["a1", "a2", "a3", "a4"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param, 0.0 if param in ["a1", "a3"] else 1.0)
 
         self.materials[matTag] = material_info

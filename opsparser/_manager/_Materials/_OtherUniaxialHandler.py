@@ -277,7 +277,7 @@ class OtherUniaxialHandler(SubBaseHandler):
         }
         params = ["a1", "a2", "a3", "a4"]
         for param in params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -306,7 +306,7 @@ class OtherUniaxialHandler(SubBaseHandler):
 
         params = ["LGap", "NM", "RelTol", "AbsTol", "MaxHalf"]
         for param in params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -345,7 +345,7 @@ class OtherUniaxialHandler(SubBaseHandler):
 
         params = ["Fr", "p", "LGap", "NM", "RelTol", "AbsTol", "MaxHalf"]
         for param in params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -928,13 +928,13 @@ class OtherUniaxialHandler(SubBaseHandler):
         # Handle optional parameters for negative envelope
         negative_envelope_params = ["eNf1", "eNd1", "eNf2", "eNd2", "eNf3", "eNd3", "eNf4", "eNd4"]
         for param in negative_envelope_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         # Handle optional parameters for negative unloading/reloading
         negative_reload_params = ["rDispN", "rForceN", "uForceN"]
         for param in negative_reload_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info
@@ -999,7 +999,7 @@ class OtherUniaxialHandler(SubBaseHandler):
 
         params = ["epsSlip", "epsBear", "rBear"]
         for param in params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info

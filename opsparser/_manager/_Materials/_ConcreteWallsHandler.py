@@ -116,7 +116,7 @@ class ConcreteWallsHandler(SubBaseHandler):
         # 添加可选参数
         optional_params = ["beta", "Ap", "An", "Bn"]
         for param in optional_params:
-            if param in arg_map:
+            if arg_map.get(param, None) is not None:
                 material_info[param] = arg_map.get(param)
 
         self.materials[matTag] = material_info

@@ -1,8 +1,8 @@
 from ._manager import BaseHandler, ElementManager, LoadManager, MaterialManager, NodeManager, TimeSeriesManager
-from .OpenSeesSpy import OpenSeesSpy
+from .OpenSeesParser import OpenSeesParser
 
 __all__ = [
-    "OpenSeesSpy",
+    "OpenSeesParser",
     "BaseHandler",
     "ElementManager",
     "LoadManager",
