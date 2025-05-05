@@ -101,8 +101,8 @@ class ElementManager(BaseHandler):
     def get_elements_by_nodes(self, node_tags: list[int]) -> list[int]:
         """Get all elements connected to the specified nodes"""
         result = []
-        for elem_tag, nodes in self.get_element_nodes.items():
-            if all(node in nodes for node in node_tags):
+        for elem_tag, info in self.elements.items():
+            if all(node in info["eleNodes"] for node in node_tags):
                 result.append(elem_tag)
         return result
 
@@ -123,22 +123,22 @@ class ElementManager(BaseHandler):
             return self.elements
 
         element_types = {
-            "zerolength": ZeroLengthHandler.handles(),
-            "truss": TrussHandler.handles(),
-            "beamcolumn": BeamColumnHandler.handles(),
-            "joint": JointHandler.handles(),
-            "link": LinkHandler.handles(),
-            "bearing": BearingHandler.handles(),
-            "quadrilateral": QuadrilateralHandler.handles(),
-            "triangular": TriangularHandler.handles(),
-            "brick": BrickHandler.handles(),
-            "tetrahedron": TetrahedronHandler.handles(),
-            "ucsd_up": UCSDUpHandler.handles(),
-            "other_up": OtherUpHandler.handles(),
-            "contact": ContactHandler.handles(),
-            "cable": CableHandler.handles(),
-            "pfem": PFEMHandler.handles(),
-            "misc": MiscHandler.handles()
+            "zerolength": ZeroLengthHandler.types(),
+            "truss": TrussHandler.types(),
+            "beamcolumn": BeamColumnHandler.types(),
+            "joint": JointHandler.types(),
+            "link": LinkHandler.types(),
+            "bearing": BearingHandler.types(),
+            "quadrilateral": QuadrilateralHandler.types(),
+            "triangular": TriangularHandler.types(),
+            "brick": BrickHandler.types(),
+            "tetrahedron": TetrahedronHandler.types(),
+            "ucsd_up": UCSDUpHandler.types(),
+            "other_up": OtherUpHandler.types(),
+            "contact": ContactHandler.types(),
+            "cable": CableHandler.types(),
+            "pfem": PFEMHandler.types(),
+            "misc": MiscHandler.types()
         }
 
         element_list = []

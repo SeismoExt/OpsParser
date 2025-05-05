@@ -42,7 +42,7 @@ class HandlerCollection:
             raise AttributeError(name) from e
 
     def __getitem__(self, key: str) -> BaseHandler:
-        """Allow accessing handlers using dictionary key syntax (e.g., collection['NodeManager'])."""
+        """Allow accessing handlers using dictionary key syntax (e.g., collection['Node'])."""
         try:
             return self._handlers[key]
         except KeyError as e:

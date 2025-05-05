@@ -1,0 +1,26 @@
+/* 控制notebook输出的高度和滚动行为 */
+div.output_area {
+    max-height: 300px;
+    overflow: auto;
+}
+
+/* 为含有大量文本或表格的输出添加滚动条 */
+div.output_text,
+div.output_html,
+div.output_stderr {
+    max-height: 300px;
+    overflow: auto;
+}
+
+/* 针对数据表格的特殊处理 */
+div.output_area .rendered_html table {
+    max-height: 300px;
+    display: block;
+    overflow: auto;
+}
+
+/* 保持图像输出不受限制 */
+div.output_area img {
+    max-height: none;
+    overflow: visible;
+}
