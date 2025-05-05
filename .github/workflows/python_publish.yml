@@ -50,7 +50,8 @@ jobs:
       - name: Run tests with pytest and coverage
         run: |
           mkdir -p test-results
-          uv tool run pytest tests/ -v --cov=opsparser --cov-report=xml --cov-report=term --junitxml=test-results/junit.xml
+          uv pip install -e .
+          python -m pytest tests/ -v --cov=opsparser --cov-report=xml --cov-report=term --junitxml=test-results/junit.xml
       - name: Upload test results
         uses: actions/upload-artifact@v4
         if: always()

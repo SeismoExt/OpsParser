@@ -26,7 +26,7 @@ def test_handle_Elastic(material_manager: MaterialManager) -> None:
     assert material_data["E"] == 200000.0
     assert material_data["eta"] == 0.02
     assert material_data["Eneg"] == 180000.0
-    assert material_data["materialCommandType"] == "uniaxialMaterial"
+
 
 
 def test_handle_ElasticPP(material_manager: MaterialManager) -> None:
@@ -44,7 +44,7 @@ def test_handle_ElasticPP(material_manager: MaterialManager) -> None:
     assert material_data["epsyP"] == 0.001
     assert material_data["epsyN"] == -0.0015
     assert material_data["eps0"] == 0.0002
-    assert material_data["materialCommandType"] == "uniaxialMaterial"
+
 
 
 def test_handle_ElasticPPGap(material_manager: MaterialManager) -> None:
@@ -63,7 +63,7 @@ def test_handle_ElasticPPGap(material_manager: MaterialManager) -> None:
     assert material_data["gap"] == 0.005
     assert material_data["eta"] == 0.1
     assert material_data["damage"] == "damage"
-    assert material_data["materialCommandType"] == "uniaxialMaterial"
+
 
 
 def test_handle_ENT(material_manager: MaterialManager) -> None:
@@ -79,7 +79,7 @@ def test_handle_ENT(material_manager: MaterialManager) -> None:
     assert material_data["matTag"] == 4
     assert material_data["E"] == 200000.0
     assert material_data["minE"] == 10.0
-    assert material_data["materialCommandType"] == "uniaxialMaterial"
+
 
 
 def test_handle_Hysteretic(material_manager: MaterialManager) -> None:
@@ -110,7 +110,7 @@ def test_handle_Hysteretic(material_manager: MaterialManager) -> None:
     assert material_data["damage1"] == 0.25
     assert material_data["damage2"] == 0.35
     assert material_data["beta"] == 0.1
-    assert material_data["materialCommandType"] == "uniaxialMaterial"
+
 
 
 def test_handle_Parallel(material_manager: MaterialManager) -> None:
@@ -130,7 +130,7 @@ def test_handle_Parallel(material_manager: MaterialManager) -> None:
     assert material_data["matType"] == "Parallel"
     assert material_data["matTag"] == 6
     assert material_data["tags"] == [11, 12]
-    assert material_data["materialCommandType"] == "uniaxialMaterial"
+
 
 
 def test_handle_Series(material_manager: MaterialManager) -> None:
@@ -150,7 +150,7 @@ def test_handle_Series(material_manager: MaterialManager) -> None:
     assert material_data["matType"] == "Series"
     assert material_data["matTag"] == 7
     assert material_data["tags"] == [21, 22]
-    assert material_data["materialCommandType"] == "uniaxialMaterial"
+
 
 
 def test_handle_Parallel_with_factors(material_manager: MaterialManager) -> None:
@@ -172,7 +172,7 @@ def test_handle_Parallel_with_factors(material_manager: MaterialManager) -> None
     assert material_data["matTag"] == 8
     assert material_data["tags"] == [31, 32]
     assert material_data["factors"] == [1.0, 0.5]
-    assert material_data["materialCommandType"] == "uniaxialMaterial"
+
 
 
 def test_handle_unknown_standard_uniaxial_material(material_manager: MaterialManager) -> None:

@@ -1,7 +1,7 @@
 [project]
 name = "opsparser"
 version = "0.1.0"
-description = "Add your description here"
+description = "A lightweight, pure Python implementation of an OpenSeesPy command monitoring tool for capturing, recording, and analyzing OpenSees command execution processes. No third-party dependencies, compatible with all OpenSeesPy versions, with no impact on original performance. Provides flexible API interfaces, supporting custom data processing and event triggering mechanisms."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
@@ -25,4 +25,5 @@ dev = [
     "sphinx-rtd-theme>=3.0.2",
     "sphinx-autoapi>=3.6.0",
     "furo>=2024.8.6",
+    "pytest-cov>=6.1.1",
 ]
