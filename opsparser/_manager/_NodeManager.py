@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any, Optional, Literal
 
 from ._BaseHandler import BaseHandler
 
@@ -9,6 +9,39 @@ class NodeManager(BaseHandler):
         self.ndm = 0  # 模型维度
         self.ndf = 0  # 节点自由度数
 
+    @property
+    def newtag(self) -> int:
+        """return a new tag that is unused"""
+        return self.get_new_tags(1)[0]
+    
+    @property
+    def newtag_upper(self):
+        """return a new tag that is max of all tags + 1"""
+        return max(self.nodes)+1
+    
+    def get_new_tags(self, num: int, start: int = 1) -> list[int]:
+        """Generate a list of 'num' new node tags starting from at least 'start'"""
+        if not self.nodes:
+            return list(range(start, start + num))
+        
+        sorted_tags = sorted(self.nodes.keys())
+        # Compute the first candidate tag: at least `start`, and after the smallest existing tag
+        candidate = max(start, sorted_tags[0] + 1)
+        if candidate>=sorted_tags[-1]:
+            candidate = max(start, sorted_tags[-1] + 1)
+            return list(range(candidate, candidate + num))
+
+        for tag in sorted_tags:
+            # If the gap before the current tag is large enough, use it
+            if tag - candidate >= num:
+                return list(range(candidate, candidate + num))
+            # Otherwise, move the candidate just after this tag (skip used tags)
+            if tag >= candidate:
+                candidate = tag + 1
+
+        # If no suitable gap was found inside existing tags, allocate tags after the last one
+        return list(range(candidate, candidate + num))
+    
     @property
     def _COMMAND_RULES(self) -> dict[str, dict[str, Any]]:
         return {
