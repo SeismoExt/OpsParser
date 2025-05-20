@@ -9,6 +9,7 @@ from opsparser import MaterialManager
 def material_manager() -> MaterialManager:
     """每个测试前初始化一个MaterialManager实例, 并添加默认材料"""
     material_manager = MaterialManager()
+    material_manager.clear()
     # 添加默认材料1
     func_name = "uniaxialMaterial"
     args = ("Steel01", 1, 420.0, 200000.0, 0.01, 0.5, 1.0, 0.0, 1.0)
@@ -24,7 +25,9 @@ def material_manager() -> MaterialManager:
 @pytest.fixture
 def empty_material_manager() -> MaterialManager:
     """部分测试前初始化一个空的MaterialManager实例"""
-    return MaterialManager()
+    material_manager = MaterialManager()
+    material_manager.clear()
+    return material_manager
 
 def test_handles(material_manager: MaterialManager):
     """测试handles方法"""

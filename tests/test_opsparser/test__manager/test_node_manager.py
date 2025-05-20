@@ -8,7 +8,9 @@ from opsparser import BaseHandler, NodeManager
 @pytest.fixture
 def node_manager() -> NodeManager:
     """每个测试前初始化一个NodeManager实例"""
-    return NodeManager()
+    node_manager = NodeManager()
+    node_manager.clear()
+    return node_manager
 
 def test_handle_node(node_manager: NodeManager) -> None:
     """测试节点数据处理功能"""

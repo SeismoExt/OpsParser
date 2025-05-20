@@ -4,7 +4,7 @@
 """
 import pytest
 import openseespy.opensees as ops
-from opsparser import OpenSeesParser
+from opsparser import OpenSeesParser, OpenSeesCommand
 from opsparser._manager import NodeManager # 显式导入以便类型提示
 
 # 使用 pytest fixture 进行 setup 和 teardown
@@ -27,7 +27,7 @@ def test_model_command(spy_instance: OpenSeesParser):
     ops.model("basic", "-ndm", 3, "-ndf", 6)
 
     # 检查 spy 的 NodeManager 是否正确记录了模型维度和自由度
-    node_manager: NodeManager = spy_instance.handlers["Node"] # 获取 NodeManager 实例
+    node_manager: NodeManager = OpenSeesCommand.NODE.instance # 获取 NodeManager 实例
     assert node_manager.ndm == 3, "模型维度应为 3"
     assert node_manager.ndf == 6, "模型自由度应为 6"
 
@@ -39,7 +39,7 @@ def test_node_command(spy_instance: OpenSeesParser):
     ops.node(1, 0.0, 0.0, 0.1)
 
     # 检查 spy 的 NodeManager 是否正确记录了节点信息
-    node_manager: NodeManager = spy_instance.handlers["Node"] # 获取 NodeManager 实例
+    node_manager: NodeManager = OpenSeesCommand.NODE.instance # 获取 NodeManager 实例
     assert len(node_manager.nodes) == 1, "应该有一个节点"
     node = node_manager.nodes[1]
     assert node["coords"] == [0.0, 0.0, 0.1], "节点坐标应为 [0.0, 0.0, 0.1]"
