@@ -1,10 +1,10 @@
 Quick Start
-===========
+=============
 
 This section demonstrates the basic usage of OpsParser.
 
 Setup and Installation
-----------------------
+----------------------------
 
 First, install OpsParser using pip:
 
@@ -13,7 +13,7 @@ First, install OpsParser using pip:
    pip install opsparser
 
 Basic Usage Examples
--------------------
+------------------------
 
 Here's a basic example of using OpsParser:
 

@@ -10,9 +10,9 @@ OpenSeesParser
    :members: 
    :noindex:
      
-HandlerCollection  
+OpenSeesCommand  
 ------------------
   
-.. autoclass:: HandlerCollection
+.. autoclass:: OpenSeesCommand
    :members:
    :noindex:

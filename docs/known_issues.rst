@@ -5,19 +5,19 @@ Known Issues
 This section lists known issues and limitations of OpsParser, along with possible solutions.
 
 Compatibility Issues
--------------------
+----------------------
 
 * **OpenSees Version Compatibility**: OpsParser is developed with reference to version 3.7.1.2. Older versions may have different command formats. Please submit an issue if you encounter compatibility problems.
 * **Python Version**: Python 3.12 or higher is recommended, as lower versions may experience compatibility issues with OpenSeesPy.
 
 Functional Limitations
----------------------
+-------------------------
 
 1. **Command Capture Limitations**: Some specific OpenSees commands may not be correctly captured and recorded (or may be recorded repeatedly).
 2. **Complex Models**: Performance may be affected when working with very complex models.
 
 Common Errors and Solutions
---------------------------
+---------------------------------
 
 1. **ImportError**
 
@@ -34,7 +34,7 @@ Common Errors and Solutions
    Solution: Update to compatible versions or check the documentation for guidance on specific version combinations.
 
 Reporting Issues
----------------
+------------------------
 
 If you encounter issues not listed here, please report them through:
 
@@ -43,7 +43,7 @@ If you encounter issues not listed here, please report them through:
 3. If possible, including a minimal example code that demonstrates the issue
 
 Contributing Fixes
-----------------
+-------------------------
 
 We welcome community contributions to fix known issues. If you're interested in contributing code:
 
