@@ -41,7 +41,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential tk-dev tcl-dev
+          sudo apt-get install -y build-essential tk-dev tcl-dev libblas-dev liblapack-dev
       - uses: astral-sh/setup-uv@v1
         with:
           version: "latest"
