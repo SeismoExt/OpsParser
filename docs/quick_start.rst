@@ -21,6 +21,7 @@ Here's a basic example of using OpsParser:
 
    import openseespy.opensees as ops
    from opsparser import OpenSeesParser
+   from opsparser import OpenSeesCommand as Command
    
    # Create a parser instance by passsing OpenSeesPy module object
    parser = OpenSeesParser(ops)
@@ -40,10 +41,11 @@ Here's a basic example of using OpsParser:
    ops.uniaxialMaterial("Steel01", 1, 420.0, 2E5, 0.01)
    
    # Access parsed data
-   node_dict = parser.handlers["Node"].nodes
+   Node = Command.NODE.instance
+   node_dict = Node.nodes
    
    # Get node coordinates
-   coords = parser.handlers["Node"].get_node_coords(1)
+   coords = Node.get_node_coords(1)
    print(f"Node 1 coordinates: {coords}")
    
    # Clear parser data
