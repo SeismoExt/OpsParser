@@ -4,8 +4,7 @@
 [![PyPI version](https://badge.fury.io/py/opsparser.svg)](https://badge.fury.io/py/opsparser)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Downloads](https://static.pepy.tech/badge/opsparser)](https://pepy.tech/project/opsparser)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/yourusername/opsparser/graphs/commit-activity)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://makeapullrequest.com)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/SeismoExt/OpsParser)
 
 OpenSeesParser (OpsParser) is a practical utility library designed for OpenSeesPy users, providing a series of convenient functions and tools to help users build and analyze structural models more efficiently.
 
@@ -59,7 +58,7 @@ Node.get_new_tags(5)
 
 ## Examples
 
-Check out the [examples documentation](https://opsparser.readthedocs.io/en/latest/examples.html) for more usage examples, including modeling and analysis of bridges, frames, and other structures.
+Check out the [examples documentation](https://opsparser.readthedocs.io/en/latest/examples/index.html) for more usage examples, including modeling and analysis of bridges, frames, and other structures.
 
 ## Documentation
 
