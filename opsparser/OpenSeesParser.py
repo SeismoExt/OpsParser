@@ -4,7 +4,10 @@ import functools
 import types
 from collections import defaultdict
 
-from ._manager import BaseHandler, ElementManager, LoadManager, MaterialManager, NodeManager, TimeSeriesManager
+from ._manager import (
+    BaseHandler, ElementManager, LoadManager, MaterialManager, NodeManager, TimeSeriesManager,
+    ModelManager, SPConstraintManager, MPConstraintManager, GeomTransfManager, SectionManager
+)
 
 
 class OpenSeesCommand(enum.Enum):
@@ -13,8 +16,13 @@ class OpenSeesCommand(enum.Enum):
     NODE = NodeManager
     ELEMENT = ElementManager
     MATERIAL = MaterialManager
-    # TIMESERIES = TimeSeriesManager # Uncomment when TimeSeriesManager is a singleton
-    # LOAD = LoadManager           # Uncomment when LoadManager is a singleton
+    TIMESERIES = TimeSeriesManager
+    LOAD = LoadManager
+    MODEL = ModelManager
+    SPCONSTRAINT = SPConstraintManager
+    MPCONSTRAINT = MPConstraintManager
+    GEOMTRANSF = GeomTransfManager
+    SECTION = SectionManager
 
     @property
     def instance(self) -> BaseHandler:
